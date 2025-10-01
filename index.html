@@ -1,205 +1,321 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - Mi Proyecto Web</title>
-    <link rel="stylesheet" href="styles/main.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <a href="index.html">
-                    <h2>MiWeb</h2>
-                </a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active" data-i18n="navHome">ホーム</a></li>
-                <li><a href="pages/demo.html" data-i18n="navDemo">デモ</a></li>
-                <li><a href="pages/pricing.html" data-i18n="navPricing">料金</a></li>
-                <li><a href="pages/contact.html" data-i18n="navContact">お問い合わせ</a></li>
-            </ul>
-            <div class="nav-actions">
-                <div class="user-menu">
-                    <button class="user-button" id="userMenuButton" onclick="toggleUserMenu()">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="8" r="4"/>
-                            <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
-                        </svg>
-                    </button>
-                    <div class="user-dropdown" id="userDropdown">
-                        <a href="pages/login.html" class="user-menu-item" data-i18n="navLogin">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
-                                <polyline points="10 17 15 12 10 7"/>
-                                <line x1="15" y1="12" x2="3" y2="12"/>
-                            </svg>
-                            <span>ログイン</span>
-                        </a>
-                        <a href="pages/pricing.html" class="user-menu-item" data-i18n="userMenuPricing">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
-                            </svg>
-                            <span>料金プラン</span>
-                        </a>
-                        <a href="pages/contact.html" class="user-menu-item" data-i18n="userMenuContact">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                            </svg>
-                            <span>お問い合わせ</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="language-selector">
-                    <button class="lang-button" id="currentLangButton" onclick="toggleLanguageMenu()">
-                        <span class="flag-circle flag-ja"></span>
-                    </button>
-                    <div class="lang-dropdown" id="languageDropdown">
-                        <button class="lang-option" onclick="changeLanguage('ja')" data-lang="ja">
-                            <span class="flag-circle flag-ja"></span>
-                        </button>
-                        <button class="lang-option" onclick="changeLanguage('en')" data-lang="en">
-                            <span class="flag-circle flag-en"></span>
-                        </button>
-                        <button class="lang-option" onclick="changeLanguage('es')" data-lang="es">
-                            <span class="flag-circle flag-es"></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+      <div class="nav-container">
+        <div class="logo">
+          <a href="index.html">
+            <h2>MiWeb</h2>
+          </a>
         </div>
+        <ul class="nav-menu">
+          <li>
+            <a href="index.html" class="active" data-i18n="navHome">ホーム</a>
+          </li>
+          <li><a href="pages/demo.html" data-i18n="navDemo">デモ</a></li>
+          <li><a href="pages/pricing.html" data-i18n="navPricing">料金</a></li>
+          <li>
+            <a href="pages/contact.html" data-i18n="navContact">お問い合わせ</a>
+          </li>
+        </ul>
+        <div class="nav-actions">
+          <div class="user-menu">
+            <button
+              class="user-button"
+              id="userMenuButton"
+              onclick="toggleUserMenu()"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="8" r="4" />
+                <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+              </svg>
+            </button>
+            <div class="user-dropdown" id="userDropdown">
+              <a
+                href="pages/login.html"
+                class="user-menu-item"
+                data-i18n="navLogin"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                  <polyline points="10 17 15 12 10 7" />
+                  <line x1="15" y1="12" x2="3" y2="12" />
+                </svg>
+                <span>ログイン</span>
+              </a>
+              <a
+                href="pages/pricing.html"
+                class="user-menu-item"
+                data-i18n="userMenuPricing"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </svg>
+                <span>料金プラン</span>
+              </a>
+              <a
+                href="pages/contact.html"
+                class="user-menu-item"
+                data-i18n="userMenuContact"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                  />
+                </svg>
+                <span>お問い合わせ</span>
+              </a>
+            </div>
+          </div>
+          <div class="language-selector">
+            <button
+              class="lang-button"
+              id="currentLangButton"
+              onclick="toggleLanguageMenu()"
+            >
+              <span class="flag-circle flag-ja"></span>
+            </button>
+            <div class="lang-dropdown" id="languageDropdown">
+              <button
+                class="lang-option"
+                onclick="changeLanguage('ja')"
+                data-lang="ja"
+              >
+                <span class="flag-circle flag-ja"></span>
+              </button>
+              <button
+                class="lang-option"
+                onclick="changeLanguage('en')"
+                data-lang="en"
+              >
+                <span class="flag-circle flag-en"></span>
+              </button>
+              <button
+                class="lang-option"
+                onclick="changeLanguage('es')"
+                data-lang="es"
+              >
+                <span class="flag-circle flag-es"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <main class="main-content home-page">
-        <!-- Hero Section -->
-        <section class="hero-home">
-            <div class="hero-content">
-                <div class="hero-badge" data-i18n="heroBadge">
-                    <span class="badge-icon">✨</span>
-                    <span>AI駆動のWebサイトジェネレーター</span>
-                </div>
-                <h1 data-i18n="heroTitle">AIでWebサイトを<br>数分で自動生成</h1>
-                <p data-i18n="heroSubtitle">あなたのビジネスアイデアを説明するだけで、プロフェッショナルなWebサイトが完成。コーディング不要、技術知識不要。</p>
-                <div class="cta-buttons">
-                    <a href="pages/demo.html" class="btn btn-primary btn-large" data-i18n="btnTryDemo">
-                        <span>無料で試す</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                    <a href="pages/pricing.html" class="btn btn-secondary btn-large" data-i18n="btnViewPricing">
-                        <span>料金を見る</span>
-                    </a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number" data-i18n="stat1Number">1,000+</div>
-                        <div class="stat-label" data-i18n="stat1Label">作成されたサイト</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-i18n="stat2Number">5分</div>
-                        <div class="stat-label" data-i18n="stat2Label">平均作成時間</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-i18n="stat3Number">98%</div>
-                        <div class="stat-label" data-i18n="stat3Label">満足度</div>
-                    </div>
-                </div>
+      <!-- Hero Section -->
+      <section class="hero-home">
+        <div class="hero-content">
+          <div class="hero-badge" data-i18n="heroBadge">
+            <span class="badge-icon">✨</span>
+            <span>AI駆動のWebサイトジェネレーター</span>
+          </div>
+          <h1 data-i18n="heroTitle">AIでWebサイトを<br />数分で自動生成</h1>
+          <p data-i18n="heroSubtitle">
+            あなたのビジネスアイデアを説明するだけで、プロフェッショナルなWebサイトが完成。コーディング不要、技術知識不要。
+          </p>
+          <div class="cta-buttons">
+            <a
+              href="pages/demo.html"
+              class="btn btn-primary btn-large"
+              data-i18n="btnTryDemo"
+            >
+              <span>無料で試す</span>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a
+              href="pages/pricing.html"
+              class="btn btn-secondary btn-large"
+              data-i18n="btnViewPricing"
+            >
+              <span>料金を見る</span>
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-number" data-i18n="stat1Number">1,000+</div>
+              <div class="stat-label" data-i18n="stat1Label">
+                作成されたサイト
+              </div>
             </div>
-        </section>
+            <div class="stat-item">
+              <div class="stat-number" data-i18n="stat2Number">5分</div>
+              <div class="stat-label" data-i18n="stat2Label">平均作成時間</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-i18n="stat3Number">98%</div>
+              <div class="stat-label" data-i18n="stat3Label">満足度</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <!-- How It Works -->
-        <section class="how-it-works">
-            <div class="section-header">
-                <h2 data-i18n="howItWorksTitle">たった3ステップで完成</h2>
-                <p data-i18n="howItWorksSubtitle">シンプルで直感的なプロセス</p>
-            </div>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <div class="step-icon">📝</div>
-                    <h3 data-i18n="step1Title">ビジネスを説明</h3>
-                    <p data-i18n="step1Desc">あなたのビジネスや目的を簡単に説明してください。AIが内容を理解します。</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <div class="step-icon">🎨</div>
-                    <h3 data-i18n="step2Title">スタイルを選択</h3>
-                    <p data-i18n="step2Desc">複数のプロフェッショナルなテーマから、お好みのデザインを選んでください。</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <div class="step-icon">🚀</div>
-                    <h3 data-i18n="step3Title">即座に生成</h3>
-                    <p data-i18n="step3Desc">AIが自動的に完全なWebサイトを生成。すぐに公開可能です。</p>
-                </div>
-            </div>
-        </section>
+      <!-- How It Works -->
+      <section class="how-it-works">
+        <div class="section-header">
+          <h2 data-i18n="howItWorksTitle">たった3ステップで完成</h2>
+          <p data-i18n="howItWorksSubtitle">シンプルで直感的なプロセス</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <div class="step-icon">📝</div>
+            <h3 data-i18n="step1Title">ビジネスを説明</h3>
+            <p data-i18n="step1Desc">
+              あなたのビジネスや目的を簡単に説明してください。AIが内容を理解します。
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <div class="step-icon">🎨</div>
+            <h3 data-i18n="step2Title">スタイルを選択</h3>
+            <p data-i18n="step2Desc">
+              複数のプロフェッショナルなテーマから、お好みのデザインを選んでください。
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <div class="step-icon">🚀</div>
+            <h3 data-i18n="step3Title">即座に生成</h3>
+            <p data-i18n="step3Desc">
+              AIが自動的に完全なWebサイトを生成。すぐに公開可能です。
+            </p>
+          </div>
+        </div>
+      </section>
 
-        <!-- Features -->
-        <section class="features-home">
-            <div class="section-header">
-                <h2 data-i18n="featuresTitle">強力な機能</h2>
-                <p data-i18n="featuresSubtitle">あなたのビジネスを成功に導く機能</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card-home">
-                    <div class="feature-icon">🤖</div>
-                    <h3 data-i18n="feature1Title">AI駆動生成</h3>
-                    <p data-i18n="feature1Desc">最先端のAI技術により、コンテンツとデザインを自動生成。プロフェッショナルな仕上がりを保証。</p>
-                </div>
-                <div class="feature-card-home">
-                    <div class="feature-icon">🌐</div>
-                    <h3 data-i18n="feature2Title">多言語対応</h3>
-                    <p data-i18n="feature2Desc">日本語、英語、スペイン語など、複数の言語でWebサイトを自動生成。グローバル展開も簡単。</p>
-                </div>
-                <div class="feature-card-home">
-                    <div class="feature-icon">📱</div>
-                    <h3 data-i18n="feature3Title">完全レスポンシブ</h3>
-                    <p data-i18n="feature3Desc">スマートフォン、タブレット、PCなど、すべてのデバイスで最適表示。</p>
-                </div>
-                <div class="feature-card-home">
-                    <div class="feature-icon">⚡</div>
-                    <h3 data-i18n="feature4Title">高速パフォーマンス</h3>
-                    <p data-i18n="feature4Desc">最適化されたコードで、読み込み速度が速く、SEOにも強いWebサイトを生成。</p>
-                </div>
-                <div class="feature-card-home">
-                    <div class="feature-icon">🎨</div>
-                    <h3 data-i18n="feature5Title">多彩なテーマ</h3>
-                    <p data-i18n="feature5Desc">モダン、ミニマル、エレガントなど、5種類以上のプロフェッショナルテーマから選択可能。</p>
-                </div>
-                <div class="feature-card-home">
-                    <div class="feature-icon">🔒</div>
-                    <h3 data-i18n="feature6Title">安全・セキュア</h3>
-                    <p data-i18n="feature6Desc">最新のセキュリティ対策を実装。お客様のデータを確実に保護します。</p>
-                </div>
-            </div>
-        </section>
+      <!-- Features -->
+      <section class="features-home">
+        <div class="section-header">
+          <h2 data-i18n="featuresTitle">強力な機能</h2>
+          <p data-i18n="featuresSubtitle">あなたのビジネスを成功に導く機能</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card-home">
+            <div class="feature-icon">🤖</div>
+            <h3 data-i18n="feature1Title">AI駆動生成</h3>
+            <p data-i18n="feature1Desc">
+              最先端のAI技術により、コンテンツとデザインを自動生成。プロフェッショナルな仕上がりを保証。
+            </p>
+          </div>
+          <div class="feature-card-home">
+            <div class="feature-icon">🌐</div>
+            <h3 data-i18n="feature2Title">多言語対応</h3>
+            <p data-i18n="feature2Desc">
+              日本語、英語、スペイン語など、複数の言語でWebサイトを自動生成。グローバル展開も簡単。
+            </p>
+          </div>
+          <div class="feature-card-home">
+            <div class="feature-icon">📱</div>
+            <h3 data-i18n="feature3Title">完全レスポンシブ</h3>
+            <p data-i18n="feature3Desc">
+              スマートフォン、タブレット、PCなど、すべてのデバイスで最適表示。
+            </p>
+          </div>
+          <div class="feature-card-home">
+            <div class="feature-icon">⚡</div>
+            <h3 data-i18n="feature4Title">高速パフォーマンス</h3>
+            <p data-i18n="feature4Desc">
+              最適化されたコードで、読み込み速度が速く、SEOにも強いWebサイトを生成。
+            </p>
+          </div>
+          <div class="feature-card-home">
+            <div class="feature-icon">🎨</div>
+            <h3 data-i18n="feature5Title">多彩なテーマ</h3>
+            <p data-i18n="feature5Desc">
+              モダン、ミニマル、エレガントなど、5種類以上のプロフェッショナルテーマから選択可能。
+            </p>
+          </div>
+          <div class="feature-card-home">
+            <div class="feature-icon">🔒</div>
+            <h3 data-i18n="feature6Title">安全・セキュア</h3>
+            <p data-i18n="feature6Desc">
+              最新のセキュリティ対策を実装。お客様のデータを確実に保護します。
+            </p>
+          </div>
+        </div>
+      </section>
 
-        <!-- CTA Section -->
-        <section class="cta-section">
-            <div class="cta-content">
-                <h2 data-i18n="ctaTitle">今すぐ始めましょう</h2>
-                <p data-i18n="ctaSubtitle">無料でAI Webサイトジェネレーターを体験してください</p>
-                <div class="cta-buttons">
-                    <a href="pages/demo.html" class="btn btn-primary btn-large" data-i18n="btnStartNow">
-                        <span>今すぐ始める</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="cta-content">
+          <h2 data-i18n="ctaTitle">今すぐ始めましょう</h2>
+          <p data-i18n="ctaSubtitle">
+            無料でAI Webサイトジェネレーターを体験してください
+          </p>
+          <div class="cta-buttons">
+            <a
+              href="pages/demo.html"
+              class="btn btn-primary btn-large"
+              data-i18n="btnStartNow"
+            >
+              <span>今すぐ始める</span>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
-        <p data-i18n="footerText">&copy; 2025 MiWeb. All rights reserved.</p>
+      <p data-i18n="footerText">&copy; 2025 MiWeb. All rights reserved.</p>
     </footer>
 
     <script src="scripts/translations.js"></script>
     <script src="scripts/main.js"></script>
-</body>
+  </body>
 </html>

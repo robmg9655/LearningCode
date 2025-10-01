@@ -324,7 +324,7 @@ body::before {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #BC002D;
+  background: #bc002d;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -332,22 +332,35 @@ body::before {
 
 /* USA flag - red and white stripes with blue canton */
 .flag-en {
-  background: 
-    linear-gradient(to bottom,
-      #B22234 0%, #B22234 7.7%,
-      white 7.7%, white 15.4%,
-      #B22234 15.4%, #B22234 23.1%,
-      white 23.1%, white 30.8%,
-      #B22234 30.8%, #B22234 38.5%,
-      white 38.5%, white 46.2%,
-      #B22234 46.2%, #B22234 53.9%,
-      white 53.9%, white 61.6%,
-      #B22234 61.6%, #B22234 69.3%,
-      white 69.3%, white 77%,
-      #B22234 77%, #B22234 84.7%,
-      white 84.7%, white 92.4%,
-      #B22234 92.4%, #B22234 100%
-    );
+  background: linear-gradient(
+    to bottom,
+    #b22234 0%,
+    #b22234 7.7%,
+    white 7.7%,
+    white 15.4%,
+    #b22234 15.4%,
+    #b22234 23.1%,
+    white 23.1%,
+    white 30.8%,
+    #b22234 30.8%,
+    #b22234 38.5%,
+    white 38.5%,
+    white 46.2%,
+    #b22234 46.2%,
+    #b22234 53.9%,
+    white 53.9%,
+    white 61.6%,
+    #b22234 61.6%,
+    #b22234 69.3%,
+    white 69.3%,
+    white 77%,
+    #b22234 77%,
+    #b22234 84.7%,
+    white 84.7%,
+    white 92.4%,
+    #b22234 92.4%,
+    #b22234 100%
+  );
   position: relative;
   overflow: hidden;
 }
@@ -360,18 +373,19 @@ body::before {
   left: 0;
   width: 40%;
   height: 53%;
-  background: #3C3B6E;
+  background: #3c3b6e;
 }
 
 /* Spain flag - red, yellow, red horizontal stripes */
 .flag-es {
-  background: linear-gradient(to bottom, 
-    #AA151B 0%, 
-    #AA151B 25%, 
-    #F1BF00 25%, 
-    #F1BF00 75%, 
-    #AA151B 75%, 
-    #AA151B 100%
+  background: linear-gradient(
+    to bottom,
+    #aa151b 0%,
+    #aa151b 25%,
+    #f1bf00 25%,
+    #f1bf00 75%,
+    #aa151b 75%,
+    #aa151b 100%
   );
 }
 
@@ -477,7 +491,8 @@ body::before {
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
@@ -492,7 +507,11 @@ body::before {
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-light) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--text-primary) 0%,
+    var(--primary-light) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -616,7 +635,11 @@ body::before {
 /* How It Works Section */
 .how-it-works {
   padding: 5rem 2rem;
-  background: linear-gradient(180deg, transparent 0%, rgba(99, 102, 241, 0.03) 100%);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(99, 102, 241, 0.03) 100%
+  );
 }
 
 .steps-grid {
@@ -645,7 +668,11 @@ body::before {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -664,7 +691,11 @@ body::before {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
   color: white;
   font-size: 1.8rem;
   font-weight: 800;
@@ -742,7 +773,11 @@ body::before {
 .cta-section {
   padding: 4rem 2rem;
   text-align: center;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.1) 0%,
+    rgba(236, 72, 153, 0.1) 100%
+  );
   border-radius: 24px;
   margin: 0 2rem 4rem;
   max-width: 1200px;
@@ -1730,7 +1765,7 @@ body::before {
 /* Fade effect en los bordes del carrusel */
 .theme-carousel::before,
 .theme-carousel::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -1741,12 +1776,22 @@ body::before {
 
 .theme-carousel::before {
   left: 0;
-  background: linear-gradient(to right, var(--bg-card) 0%, var(--bg-card) 20%, transparent 100%);
+  background: linear-gradient(
+    to right,
+    var(--bg-card) 0%,
+    var(--bg-card) 20%,
+    transparent 100%
+  );
 }
 
 .theme-carousel::after {
   right: 0;
-  background: linear-gradient(to left, var(--bg-card) 0%, var(--bg-card) 20%, transparent 100%);
+  background: linear-gradient(
+    to left,
+    var(--bg-card) 0%,
+    var(--bg-card) 20%,
+    transparent 100%
+  );
 }
 
 .theme-wrapper {
@@ -1805,10 +1850,14 @@ body::before {
 }
 
 .theme-card.selected::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: -8px;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
   border-radius: 20px;
   z-index: -1;
   opacity: 0.3;
@@ -1816,7 +1865,8 @@ body::before {
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.3;
     transform: scale(1);
   }
@@ -1829,15 +1879,13 @@ body::before {
 .theme-card.selected .theme-preview {
   border-color: var(--primary-color);
   border-width: 4px;
-  box-shadow: 0 0 40px rgba(99, 102, 241, 0.8), 
-              0 0 80px rgba(99, 102, 241, 0.4),
-              0 10px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 40px rgba(99, 102, 241, 0.8), 0 0 80px rgba(99, 102, 241, 0.4),
+    0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 .theme-card.selected:hover .theme-preview {
-  box-shadow: 0 0 50px rgba(99, 102, 241, 1), 
-              0 0 100px rgba(99, 102, 241, 0.6),
-              0 25px 80px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 50px rgba(99, 102, 241, 1), 0 0 100px rgba(99, 102, 241, 0.6),
+    0 25px 80px rgba(0, 0, 0, 0.6);
 }
 
 .theme-preview {
@@ -2654,7 +2702,7 @@ body::before {
 }
 
 .secure-info::before {
-  content: '🔒';
+  content: "🔒";
 }
 
 /* Tablets y pantallas medianas */

@@ -1,184 +1,286 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Demo - Mi Proyecto Web</title>
-    <link rel="stylesheet" href="../styles/main.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../styles/main.css" />
+  </head>
+  <body>
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <a href="../index.html">
-                    <h2>MiWeb</h2>
-                </a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="../index.html" data-i18n="navHome">ホーム</a></li>
-                <li><a href="demo.html" class="active" data-i18n="navDemo">デモ</a></li>
-                <li><a href="pricing.html" data-i18n="navPricing">料金</a></li>
-                <li><a href="contact.html" data-i18n="navContact">お問い合わせ</a></li>
-            </ul>
-            <div class="nav-actions">
-                <div class="user-menu">
-                    <button class="user-button" id="userMenuButton" onclick="toggleUserMenu()">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="8" r="4"/>
-                            <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
-                        </svg>
-                    </button>
-                    <div class="user-dropdown" id="userDropdown">
-                        <a href="login.html" class="user-menu-item" data-i18n="navLogin">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
-                                <polyline points="10 17 15 12 10 7"/>
-                                <line x1="15" y1="12" x2="3" y2="12"/>
-                            </svg>
-                            <span>ログイン</span>
-                        </a>
-                        <a href="pricing.html" class="user-menu-item" data-i18n="userMenuPricing">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
-                            </svg>
-                            <span>料金プラン</span>
-                        </a>
-                        <a href="contact.html" class="user-menu-item" data-i18n="userMenuContact">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                            </svg>
-                            <span>お問い合わせ</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="language-selector">
-                    <button class="lang-button" id="currentLangButton" onclick="toggleLanguageMenu()">
-                        <span class="flag-circle flag-ja"></span>
-                    </button>
-                    <div class="lang-dropdown" id="languageDropdown">
-                        <button class="lang-option" onclick="changeLanguage('ja')" data-lang="ja">
-                            <span class="flag-circle flag-ja"></span>
-                        </button>
-                        <button class="lang-option" onclick="changeLanguage('en')" data-lang="en">
-                            <span class="flag-circle flag-en"></span>
-                        </button>
-                        <button class="lang-option" onclick="changeLanguage('es')" data-lang="es">
-                            <span class="flag-circle flag-es"></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+      <div class="nav-container">
+        <div class="logo">
+          <a href="../index.html">
+            <h2>MiWeb</h2>
+          </a>
         </div>
+        <ul class="nav-menu">
+          <li><a href="../index.html" data-i18n="navHome">ホーム</a></li>
+          <li>
+            <a href="demo.html" class="active" data-i18n="navDemo">デモ</a>
+          </li>
+          <li><a href="pricing.html" data-i18n="navPricing">料金</a></li>
+          <li>
+            <a href="contact.html" data-i18n="navContact">お問い合わせ</a>
+          </li>
+        </ul>
+        <div class="nav-actions">
+          <div class="user-menu">
+            <button
+              class="user-button"
+              id="userMenuButton"
+              onclick="toggleUserMenu()"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="8" r="4" />
+                <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+              </svg>
+            </button>
+            <div class="user-dropdown" id="userDropdown">
+              <a href="login.html" class="user-menu-item" data-i18n="navLogin">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                  <polyline points="10 17 15 12 10 7" />
+                  <line x1="15" y1="12" x2="3" y2="12" />
+                </svg>
+                <span>ログイン</span>
+              </a>
+              <a
+                href="pricing.html"
+                class="user-menu-item"
+                data-i18n="userMenuPricing"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </svg>
+                <span>料金プラン</span>
+              </a>
+              <a
+                href="contact.html"
+                class="user-menu-item"
+                data-i18n="userMenuContact"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                  />
+                </svg>
+                <span>お問い合わせ</span>
+              </a>
+            </div>
+          </div>
+          <div class="language-selector">
+            <button
+              class="lang-button"
+              id="currentLangButton"
+              onclick="toggleLanguageMenu()"
+            >
+              <span class="flag-circle flag-ja"></span>
+            </button>
+            <div class="lang-dropdown" id="languageDropdown">
+              <button
+                class="lang-option"
+                onclick="changeLanguage('ja')"
+                data-lang="ja"
+              >
+                <span class="flag-circle flag-ja"></span>
+              </button>
+              <button
+                class="lang-option"
+                onclick="changeLanguage('en')"
+                data-lang="en"
+              >
+                <span class="flag-circle flag-en"></span>
+              </button>
+              <button
+                class="lang-option"
+                onclick="changeLanguage('es')"
+                data-lang="es"
+              >
+                <span class="flag-circle flag-es"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <main class="main-content">
-        <section class="page-header">
-            <h1 data-i18n="demoTitle">インタラクティブデモ</h1>
-            <p data-i18n="demoSubtitle">私たちのプラットフォームの機能を探索</p>
-        </section>
+      <section class="page-header">
+        <h1 data-i18n="demoTitle">インタラクティブデモ</h1>
+        <p data-i18n="demoSubtitle">私たちのプラットフォームの機能を探索</p>
+      </section>
 
-        <section class="demo-content">
-            <!-- Formulario de Generación -->
-            <div class="demo-card">
-                <h2 data-i18n="formTitle">ウェブサイト生成</h2>
-                <form id="generatorForm" class="generator-form">
-                    <!-- Descripción del negocio -->
-                    <div class="form-group">
-                        <label for="businessDesc" data-i18n="businessDesc">ビジネスの説明</label>
-                        <textarea id="businessDesc" name="businessDesc" rows="4" data-i18n="businessPlaceholder" placeholder="あなたのビジネスを説明してください..." required></textarea>
-                    </div>
-
-                    <!-- Selector de idiomas -->
-                    <div class="form-group">
-                        <label data-i18n="selectLanguages">言語を選択</label>
-                        <div class="language-checkboxes">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="languages" value="ja" checked>
-                                <span>🇯🇵 日本語</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="languages" value="en">
-                                <span>🇬🇧 English</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="languages" value="es">
-                                <span>🇪🇸 Español</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="languages" value="fr">
-                                <span>🇫🇷 Français</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="languages" value="de">
-                                <span>🇩🇪 Deutsch</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Upload de imágenes -->
-                    <div class="form-group">
-                        <label for="imageUpload" data-i18n="uploadImages">画像をアップロード</label>
-                        <div class="file-upload-wrapper">
-                            <input type="file" id="imageUpload" name="images" multiple accept="image/*" class="file-input">
-                            <label for="imageUpload" class="file-upload-label">
-                                <span class="upload-icon">📁</span>
-                                <span class="upload-text">クリックまたはドラッグしてファイルを選択</span>
-                            </label>
-                            <div id="imagePreview" class="image-preview"></div>
-                        </div>
-                    </div>
-
-                    <!-- Carrusel de temas -->
-                    <div class="form-group">
-                        <label data-i18n="selectTheme">テーマを選択</label>
-                        <div class="theme-carousel">
-                            <button type="button" class="carousel-btn prev" onclick="scrollCarousel(-1)">‹</button>
-                            <div class="theme-wrapper" id="themeWrapper">
-                                <div class="theme-card" data-theme="modern">
-                                    <div class="theme-preview theme-modern"></div>
-                                    <span data-i18n="themeModern">モダン</span>
-                                </div>
-                                <div class="theme-card" data-theme="minimalist">
-                                    <div class="theme-preview theme-minimalist"></div>
-                                    <span data-i18n="themeMinimalist">ミニマリスト</span>
-                                </div>
-                                <div class="theme-card" data-theme="colorful">
-                                    <div class="theme-preview theme-colorful"></div>
-                                    <span data-i18n="themeColorful">カラフル</span>
-                                </div>
-                                <div class="theme-card" data-theme="elegant">
-                                    <div class="theme-preview theme-elegant"></div>
-                                    <span data-i18n="themeElegant">エレガント</span>
-                                </div>
-                                <div class="theme-card" data-theme="dark">
-                                    <div class="theme-preview theme-dark"></div>
-                                    <span data-i18n="themeDark">ダーク</span>
-                                </div>
-                            </div>
-                            <button type="button" class="carousel-btn next" onclick="scrollCarousel(1)">›</button>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-full" data-i18n="btnGenerate">生成する</button>
-                </form>
+      <section class="demo-content">
+        <!-- Formulario de Generación -->
+        <div class="demo-card">
+          <h2 data-i18n="formTitle">ウェブサイト生成</h2>
+          <form id="generatorForm" class="generator-form">
+            <!-- Descripción del negocio -->
+            <div class="form-group">
+              <label for="businessDesc" data-i18n="businessDesc"
+                >ビジネスの説明</label
+              >
+              <textarea
+                id="businessDesc"
+                name="businessDesc"
+                rows="4"
+                data-i18n="businessPlaceholder"
+                placeholder="あなたのビジネスを説明してください..."
+                required
+              ></textarea>
             </div>
 
-            <!-- Resultado -->
-            <div class="demo-card">
-                <h2 data-i18n="resultTitle">結果</h2>
-                <div id="resultContainer" class="result-container">
-                    <p class="result-placeholder" data-i18n="resultPlaceholder">フォームに記入して結果を生成してください</p>
+            <!-- Selector de idiomas -->
+            <div class="form-group">
+              <label data-i18n="selectLanguages">言語を選択</label>
+              <div class="language-checkboxes">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="languages" value="ja" checked />
+                  <span>🇯🇵 日本語</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="languages" value="en" />
+                  <span>🇬🇧 English</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="languages" value="es" />
+                  <span>🇪🇸 Español</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="languages" value="fr" />
+                  <span>🇫🇷 Français</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="languages" value="de" />
+                  <span>🇩🇪 Deutsch</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Upload de imágenes -->
+            <div class="form-group">
+              <label for="imageUpload" data-i18n="uploadImages"
+                >画像をアップロード</label
+              >
+              <div class="file-upload-wrapper">
+                <input
+                  type="file"
+                  id="imageUpload"
+                  name="images"
+                  multiple
+                  accept="image/*"
+                  class="file-input"
+                />
+                <label for="imageUpload" class="file-upload-label">
+                  <span class="upload-icon">📁</span>
+                  <span class="upload-text"
+                    >クリックまたはドラッグしてファイルを選択</span
+                  >
+                </label>
+                <div id="imagePreview" class="image-preview"></div>
+              </div>
+            </div>
+
+            <!-- Carrusel de temas -->
+            <div class="form-group">
+              <label data-i18n="selectTheme">テーマを選択</label>
+              <div class="theme-carousel">
+                <button
+                  type="button"
+                  class="carousel-btn prev"
+                  onclick="scrollCarousel(-1)"
+                >
+                  ‹
+                </button>
+                <div class="theme-wrapper" id="themeWrapper">
+                  <div class="theme-card" data-theme="modern">
+                    <div class="theme-preview theme-modern"></div>
+                    <span data-i18n="themeModern">モダン</span>
+                  </div>
+                  <div class="theme-card" data-theme="minimalist">
+                    <div class="theme-preview theme-minimalist"></div>
+                    <span data-i18n="themeMinimalist">ミニマリスト</span>
+                  </div>
+                  <div class="theme-card" data-theme="colorful">
+                    <div class="theme-preview theme-colorful"></div>
+                    <span data-i18n="themeColorful">カラフル</span>
+                  </div>
+                  <div class="theme-card" data-theme="elegant">
+                    <div class="theme-preview theme-elegant"></div>
+                    <span data-i18n="themeElegant">エレガント</span>
+                  </div>
+                  <div class="theme-card" data-theme="dark">
+                    <div class="theme-preview theme-dark"></div>
+                    <span data-i18n="themeDark">ダーク</span>
+                  </div>
                 </div>
+                <button
+                  type="button"
+                  class="carousel-btn next"
+                  onclick="scrollCarousel(1)"
+                >
+                  ›
+                </button>
+              </div>
             </div>
-        </section>
+
+            <button
+              type="submit"
+              class="btn btn-primary btn-full"
+              data-i18n="btnGenerate"
+            >
+              生成する
+            </button>
+          </form>
+        </div>
+
+        <!-- Resultado -->
+        <div class="demo-card">
+          <h2 data-i18n="resultTitle">結果</h2>
+          <div id="resultContainer" class="result-container">
+            <p class="result-placeholder" data-i18n="resultPlaceholder">
+              フォームに記入して結果を生成してください
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
-        <p data-i18n="footerText">&copy; 2025 MiWeb. All rights reserved.</p>
+      <p data-i18n="footerText">&copy; 2025 MiWeb. All rights reserved.</p>
     </footer>
 
     <script src="../scripts/translations.js"></script>
     <script src="../scripts/main.js"></script>
-</body>
+  </body>
 </html>
