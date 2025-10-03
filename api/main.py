@@ -212,6 +212,34 @@ async def generate_website_with_llm(
 ) -> dict:
     """Generate website files using code model"""
     
+    # Theme configurations matching the frontend form
+    theme_configs = {
+        "modern": {
+            "colors": {"primary": "#3B82F6", "secondary": "#1E40AF", "accent": "#60A5FA", "bg": "#F9FAFB"},
+            "description": "Clean, contemporary design with blue tones, card-based layouts, subtle shadows"
+        },
+        "minimalist": {
+            "colors": {"primary": "#1F2937", "secondary": "#6B7280", "accent": "#9CA3AF", "bg": "#FFFFFF"},
+            "description": "Minimal, monochrome palette, generous whitespace, simple typography, no decorations"
+        },
+        "colorful": {
+            "colors": {"primary": "#8B5CF6", "secondary": "#EC4899", "accent": "#F59E0B", "bg": "#FEF3C7"},
+            "description": "Vibrant, playful colors (purple, pink, orange), gradients, bold typography"
+        },
+        "elegant": {
+            "colors": {"primary": "#9333EA", "secondary": "#C084FC", "accent": "#D8B4FE", "bg": "#FAF5FF"},
+            "description": "Sophisticated purple/lavender tones, serif fonts, refined spacing, luxury feel"
+        },
+        "dark": {
+            "colors": {"primary": "#10B981", "secondary": "#059669", "accent": "#34D399", "bg": "#111827"},
+            "description": "Dark backgrounds (#111827), neon green accents, high contrast, modern dark UI"
+        }
+    }
+    
+    # Determine theme (default to modern if not specified or invalid)
+    theme_key = (request.theme_hint or "modern").lower()
+    theme = theme_configs.get(theme_key, theme_configs["modern"])
+    
     # Determine pages to generate
     default_pages = ["index", "about", "services", "pricing", "contact"]
     pages_to_generate = request.pages if request.pages else default_pages[:3]
@@ -219,37 +247,45 @@ async def generate_website_with_llm(
     # Ensure we don't exceed max pages
     pages_to_generate = pages_to_generate[:MAX_PAGES]
     
-    # Build prompt
+    # Build enhanced prompt
     prompt = f"""You are an expert web developer. Generate a complete, modern, responsive multi-page static website.
 
 Requirements:
 - Company Name: {request.company_name}
 - Description: {request.description}
-- Theme: {request.theme_hint or 'modern and professional'}
-- Dark Mode: {'Required' if request.require_dark_mode else 'Optional'}
-- Pages: {', '.join(pages_to_generate)}
+- Theme Style: {theme_key.upper()} - {theme['description']}
+- Color Palette: {json.dumps(theme['colors'])}
+- Pages Required: {', '.join(pages_to_generate)}
 
-Design Hints:
-{json.dumps(design_hints, indent=2) if design_hints else 'Use modern, professional design'}
+{f"Additional Design Hints from Images: {json.dumps(design_hints)}" if design_hints else ""}
 
-Generate the following files:
-1. index.html (home page)
-2. Additional HTML files for: {', '.join(p for p in pages_to_generate if p != 'index')}
-3. styles.css (comprehensive styling, responsive, modern)
-4. script.js (interactive features, smooth animations)
+THEME REQUIREMENTS FOR '{theme_key.upper()}':
+{theme['description']}
+- Primary Color: {theme['colors']['primary']}
+- Secondary Color: {theme['colors']['secondary']}
+- Accent Color: {theme['colors']['accent']}
+- Background: {theme['colors']['bg']}
 
-Requirements:
-- Use semantic HTML5
-- Fully responsive design (mobile-first)
-- Modern CSS (flexbox/grid, animations)
-- Vanilla JavaScript (no frameworks)
-- Navigation bar on all pages
-- Professional typography
-- Color scheme based on {design_hints.get('primary_color', '#3B82F6') if design_hints else '#3B82F6'}
-- Include contact form on contact page
-- Smooth scrolling and transitions
-- Accessibility features (ARIA labels, alt texts)
-{'- Dark mode by default' if request.require_dark_mode else ''}
+Generate a professional, complete website with these files:
+1. index.html - Homepage with hero section, company overview, call-to-action
+2. {'.html, '.join(p for p in pages_to_generate if p != 'index')}.html - Additional pages with relevant content
+3. styles.css - Complete responsive styling following the {theme_key} theme
+4. script.js - Interactive features, smooth animations, mobile menu
+
+CRITICAL DESIGN REQUIREMENTS:
+- Semantic HTML5 with proper structure
+- Mobile-first responsive design (breakpoints: 768px, 1024px, 1280px)
+- CSS Grid and Flexbox for layouts
+- Smooth animations and transitions
+- Professional navigation bar (sticky on desktop)
+- Hero section with compelling headline
+- Feature/service sections with icons or cards
+- Contact form with validation
+- Footer with company info and links
+- Accessibility: ARIA labels, semantic tags, keyboard navigation
+- Modern typography (use system fonts or Google Fonts)
+- Consistent spacing and rhythm
+- Button hover effects and micro-interactions
 
 Return ONLY a valid JSON object with this exact structure (no markdown, no code blocks, no explanations):
 {{

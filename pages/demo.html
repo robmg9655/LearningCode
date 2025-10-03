@@ -102,6 +102,22 @@
         <div class="demo-card">
           <h2 data-i18n="formTitle">ウェブサイト生成</h2>
           <form id="generatorForm" class="generator-form">
+            <!-- Nombre de la empresa -->
+            <div class="form-group">
+              <label for="companyName" data-i18n="companyName"
+                >会社名</label
+              >
+              <input
+                type="text"
+                id="companyName"
+                name="companyName"
+                data-i18n="companyPlaceholder"
+                placeholder="Nombre de tu empresa o proyecto..."
+                required
+                maxlength="100"
+              />
+            </div>
+
             <!-- Descripción del negocio -->
             <div class="form-group">
               <label for="businessDesc" data-i18n="businessDesc"
@@ -237,7 +253,12 @@
       <p data-i18n="footerText">&copy; 2025 MiWeb. All rights reserved.</p>
     </footer>
 
+    <!-- JSZip para extraer archivos ZIP en el navegador -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    
+    <!-- Scripts de la aplicación -->
     <script src="../scripts/translations.js"></script>
+    <script src="../scripts/generator-helpers.js"></script>
     <script src="../scripts/main.js"></script>
   </body>
 </html>

@@ -4,13 +4,23 @@ Add these to main.py for production deployment
 """
 
 import hashlib
+import logging
+import os
+import re
 import secrets
 import time
 from functools import wraps
 from typing import Optional
 
-from fastapi import Header, HTTPException, Request
+import httpx
+from fastapi import FastAPI, Header, HTTPException, Request
 from fastapi.responses import JSONResponse
+
+# Initialize logger
+logger = logging.getLogger(__name__)
+
+# Initialize app placeholder (will be replaced when integrated)
+app = FastAPI()
 
 # ============================================================================
 # API Key Authentication

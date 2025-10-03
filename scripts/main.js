@@ -62,62 +62,328 @@ document.addEventListener("DOMContentLoaded", function () {
   // Manejo del formulario generador
   const generatorForm = document.getElementById("generatorForm");
   if (generatorForm) {
-    generatorForm.addEventListener("submit", function (e) {
+    generatorForm.addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const businessDesc = document.getElementById("businessDesc").value;
       const selectedLanguages = Array.from(
         document.querySelectorAll('input[name="languages"]:checked')
-      ).map((cb) => cb.nextElementSibling.textContent.trim());
+      ).map((cb) => cb.value);
+      const imageFiles = document.getElementById("imageUpload").files;
 
-      // Generar resultado
+      // Mostrar estado de carga con animación progresiva
       const resultContainer = document.getElementById("resultContainer");
       resultContainer.innerHTML = `
-                <div class="result-content">
-                    <div class="result-item">
-                        <h3>📝 Descripción del Negocio</h3>
-                        <p>${businessDesc}</p>
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <h3 id="loadingTitle">🚀 Iniciando generación...</h3>
+                    <p id="loadingSubtitle">La IA está preparando tu sitio con el tema <strong>${selectedTheme}</strong></p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                        <span class="progress-text" id="progressText">0%</span>
                     </div>
-                    
-                    <div class="result-item">
-                        <h3>🌐 Idiomas Seleccionados</h3>
-                        <ul>
-                            ${selectedLanguages
-                              .map((lang) => `<li>${lang}</li>`)
-                              .join("")}
-                        </ul>
-                    </div>
-                    
-                    <div class="result-item">
-                        <h3>🎨 Tema Seleccionado</h3>
-                        <p style="text-transform: capitalize;">${selectedTheme}</p>
-                    </div>
-                    
-                    <div class="result-item">
-                        <h3>🖼️ Imágenes (${uploadedImages.length})</h3>
-                        <div class="result-images">
-                            ${uploadedImages
-                              .map((img) => `<img src="${img}" alt="Uploaded">`)
-                              .join("")}
+                    <div class="progress-steps" id="progressSteps">
+                        <div class="step" id="step1">
+                            <span class="step-icon">📝</span>
+                            <span class="step-text">Analizando descripción del negocio</span>
+                        </div>
+                        <div class="step" id="step2">
+                            <span class="step-icon">🖼️</span>
+                            <span class="step-text">Procesando y analizando imágenes</span>
+                        </div>
+                        <div class="step" id="step3">
+                            <span class="step-icon">🎨</span>
+                            <span class="step-text">Diseñando estructura y estilo</span>
+                        </div>
+                        <div class="step" id="step4">
+                            <span class="step-icon">💻</span>
+                            <span class="step-text">Generando código HTML/CSS/JS</span>
+                        </div>
+                        <div class="step" id="step5">
+                            <span class="step-icon">📦</span>
+                            <span class="step-text">Compilando y empaquetando sitio</span>
                         </div>
                     </div>
-                    
-                    <div class="result-item">
-                        <h3>✨ Estado de Generación</h3>
-                        <p style="color: var(--success-color); font-weight: 600;">
-                            ✓ Website generado exitosamente con tema ${selectedTheme}
-                        </p>
-                        <p style="color: var(--text-secondary); margin-top: 1rem;">
-                            Tu sitio web ha sido configurado con ${
-                              selectedLanguages.length
-                            } idioma(s) 
-                            y ${
-                              uploadedImages.length
-                            } imagen(es). El tema ${selectedTheme} ha sido aplicado.
-                        </p>
-                    </div>
+                    <p class="loading-tip" id="loadingTip">💡 Consejo: El tema ${selectedTheme} usa colores ${getThemeDescription(selectedTheme)}</p>
                 </div>
             `;
+
+      // Función de progreso animado
+      const animateProgress = () => {
+        const steps = [
+          { id: 'step1', time: 2000, progress: 20, title: '📝 Analizando texto...', tip: 'Extrayendo palabras clave y conceptos principales' },
+          { id: 'step2', time: imageFiles.length > 0 ? 8000 : 3000, progress: 40, title: '🖼️ Visualizando imágenes...', tip: 'Analizando colores y composición de las imágenes' },
+          { id: 'step3', time: 10000, progress: 60, title: '🎨 Diseñando estilo...', tip: 'Aplicando paleta de colores y tipografía del tema ' + selectedTheme },
+          { id: 'step4', time: 15000, progress: 85, title: '💻 Generando código...', tip: 'La IA está escribiendo HTML, CSS y JavaScript optimizado' },
+          { id: 'step5', time: 5000, progress: 100, title: '📦 Finalizando...', tip: 'Compilando todos los archivos en un paquete listo para usar' }
+        ];
+
+        let currentStep = 0;
+        let animationStopped = false;
+        
+        const updateStep = () => {
+          if (animationStopped || currentStep >= steps.length) return;
+          
+          const step = steps[currentStep];
+          
+          // Verificar que los elementos aún existen
+          const stepEl = document.getElementById(step.id);
+          const titleEl = document.getElementById('loadingTitle');
+          const tipEl = document.getElementById('loadingTip');
+          const progressBar = document.getElementById('progressBar');
+          const progressText = document.getElementById('progressText');
+          
+          if (!stepEl || !titleEl || !tipEl || !progressBar || !progressText) {
+            animationStopped = true;
+            return;
+          }
+          
+          // Activar paso actual
+          stepEl.classList.add('active');
+          titleEl.textContent = step.title;
+          tipEl.textContent = '💡 ' + step.tip;
+          
+          // Animar barra de progreso
+          progressBar.style.width = step.progress + '%';
+          progressText.textContent = step.progress + '%';
+          
+          // Completar paso después de un tiempo
+          setTimeout(() => {
+            if (animationStopped) return;
+            const stepEl = document.getElementById(step.id);
+            if (stepEl) {
+              stepEl.classList.add('completed');
+            }
+            currentStep++;
+            if (currentStep < steps.length) {
+              updateStep();
+            }
+          }, step.time);
+        };
+        
+        updateStep();
+      };
+
+      // Iniciar animación de progreso
+      setTimeout(animateProgress, 500);
+
+      try {
+        // Obtener nombre de empresa
+        const companyName = document.getElementById("companyName").value.trim();
+        
+        // Preparar FormData
+        const formData = new FormData();
+        formData.append("company_name", companyName || "Mi Empresa");
+        formData.append("description", businessDesc);
+        formData.append("theme_hint", selectedTheme);
+        
+        // Enviar páginas como string separado por comas (la API lo parsea)
+        // Usar nombres simples sin guiones para evitar problemas de validación
+        const pagesString = selectedLanguages.length > 1 
+          ? "inicio,servicios,nosotros,contacto"
+          : "inicio,servicios,contacto";
+        
+        formData.append("pages", pagesString);
+
+        // Agregar imágenes si existen
+        for (let i = 0; i < Math.min(imageFiles.length, 3); i++) {
+          formData.append("images", imageFiles[i]);
+        }
+
+        // Debug: mostrar los datos que se están enviando
+        console.log("Sending request with data:");
+        for (let [key, value] of formData.entries()) {
+          if (value instanceof File) {
+            console.log(`  ${key}: ${value.name} (${value.size} bytes)`);
+          } else {
+            console.log(`  ${key}: ${value}`);
+          }
+        }
+
+        // Llamar al API
+        const response = await fetch("http://localhost:8080/generate", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (!response.ok) {
+          // Intentar obtener detalles del error del servidor
+          let errorMsg = `Error: ${response.status} ${response.statusText}`;
+          try {
+            const errorData = await response.json();
+            console.error("Server error details:", errorData);
+            if (errorData.detail) {
+              if (Array.isArray(errorData.detail)) {
+                // Error de validación de Pydantic
+                errorMsg = "Error de validación:\n" + errorData.detail.map(err => 
+                  `- ${err.loc.join('.')}: ${err.msg}`
+                ).join('\n');
+              } else {
+                errorMsg = errorData.detail;
+              }
+            }
+          } catch (e) {
+            console.error("Could not parse error response:", e);
+          }
+          throw new Error(errorMsg);
+        }
+
+        // Guardar el ZIP en memoria para descarga/preview
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const fileName = `website-${selectedTheme}-${Date.now()}.zip`;
+        
+        // Guardar en variable global para las funciones de ayuda
+        window.generatedWebsite = {
+          zipUrl: url,
+          fileName: fileName,
+          blob: blob,
+          theme: selectedTheme
+        };
+
+        // Mostrar animación de finalización primero
+        resultContainer.innerHTML = `
+          <div class="completion-animation">
+            <div class="success-burst">
+              <div class="confetti"></div>
+              <div class="confetti"></div>
+              <div class="confetti"></div>
+              <div class="confetti"></div>
+              <div class="confetti"></div>
+              <div class="confetti"></div>
+            </div>
+            <div class="success-icon-big">🎉</div>
+            <h2 class="success-title">¡Completado!</h2>
+            <p class="success-subtitle">Tu sitio web está listo</p>
+          </div>
+        `;
+
+        // Después de 2 segundos, mostrar resultado completo
+        setTimeout(() => {
+          resultContainer.innerHTML = `
+            <div class="result-content success">
+              <div class="success-header">
+                <div class="success-icon">✓</div>
+                <div>
+                  <h2>¡Sitio Web Generado Exitosamente!</h2>
+                  <p>Tu sitio web ha sido generado con el tema <strong>${selectedTheme}</strong></p>
+                </div>
+              </div>
+              
+              <div class="result-stats">
+                <div class="stat-card">
+                  <div class="stat-icon">📄</div>
+                  <div class="stat-value">3</div>
+                  <div class="stat-label">Páginas</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-icon">🎨</div>
+                  <div class="stat-value">${selectedTheme}</div>
+                  <div class="stat-label">Tema</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-icon">📦</div>
+                  <div class="stat-value">${(blob.size / 1024).toFixed(1)} KB</div>
+                  <div class="stat-label">Tamaño</div>
+                </div>
+              </div>
+
+              <div class="action-buttons">
+                <button class="btn btn-primary btn-large" onclick="downloadGeneratedWebsite()">
+                  <span class="btn-icon">⬇️</span>
+                  Descargar ZIP
+                </button>
+                <button class="btn btn-secondary btn-large" onclick="previewGeneratedWebsite()">
+                  <span class="btn-icon">👁️</span>
+                  Vista Previa
+                </button>
+              </div>
+              
+              <div class="result-item">
+                <h3>📦 Contenido del Archivo</h3>
+                <div class="file-list">
+                  <div class="file-item">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">index.html</span>
+                    <span class="file-badge">HTML</span>
+                  </div>
+                  <div class="file-item">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">servicios.html</span>
+                    <span class="file-badge">HTML</span>
+                  </div>
+                  <div class="file-item">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">contacto.html</span>
+                    <span class="file-badge">HTML</span>
+                  </div>
+                  <div class="file-item">
+                    <span class="file-icon">🎨</span>
+                    <span class="file-name">styles.css</span>
+                    <span class="file-badge">CSS</span>
+                  </div>
+                  <div class="file-item">
+                    <span class="file-icon">⚡</span>
+                    <span class="file-name">script.js</span>
+                    <span class="file-badge">JS</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="result-item">
+                <h3>🚀 Próximos Pasos</h3>
+                <ol class="steps-list">
+                  <li><strong>Vista Previa:</strong> Haz clic en "Vista Previa" para ver tu sitio en acción</li>
+                  <li><strong>Descargar:</strong> Descarga el archivo ZIP cuando estés satisfecho</li>
+                  <li><strong>Extraer:</strong> Descomprime el archivo en tu computadora</li>
+                  <li><strong>Personalizar:</strong> Edita el contenido HTML según tus necesidades</li>
+                  <li><strong>Publicar:</strong> Sube los archivos a tu hosting favorito</li>
+                </ol>
+              </div>
+              
+              <button class="btn btn-outline" onclick="location.reload()" style="margin-top: 2rem;">
+                Generar Otro Sitio
+              </button>
+            </div>
+          `;
+        }, 2000);
+      } catch (error) {
+        console.error("Error generating website:", error);
+        
+        // Intentar obtener más detalles del error
+        let errorDetail = error.message;
+        if (error.response) {
+          try {
+            const errorData = await error.response.json();
+            errorDetail = errorData.detail || error.message;
+          } catch (e) {
+            // Si no podemos parsear el error, usar el mensaje por defecto
+          }
+        }
+        
+        resultContainer.innerHTML = `
+                    <div class="result-content error">
+                        <div class="error-icon">✗</div>
+                        <h2>Error al Generar el Sitio Web</h2>
+                        <p style="color: var(--error-color);">${errorDetail}</p>
+                        
+                        <div class="result-item">
+                            <h3>💡 Posibles Soluciones</h3>
+                            <ul>
+                                <li>Verifica que el servidor API esté ejecutándose (puerto 8080)</li>
+                                <li>Revisa tu conexión a internet</li>
+                                <li>Intenta con una descripción más corta</li>
+                                <li>Reduce el número de imágenes</li>
+                                <li>Revisa la consola del navegador para más detalles</li>
+                            </ul>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="location.reload()">
+                            Intentar de Nuevo
+                        </button>
+                    </div>
+                `;
+      }
 
       // Scroll al resultado
       resultContainer.scrollIntoView({ behavior: "smooth", block: "nearest" });
