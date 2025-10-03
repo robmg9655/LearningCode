@@ -130,6 +130,27 @@ document.addEventListener("DOMContentLoaded", function () {
   const loginBox = document.getElementById("loginBox");
   const signupBox = document.getElementById("signupBox");
 
+  // Check if URL has #signup hash to show signup form automatically
+  if (loginBox && signupBox && window.location.hash === "#signup") {
+    loginBox.classList.add("hidden");
+    signupBox.classList.remove("hidden");
+  }
+
+  // Handle clicks on links with href="#signup" in navbar
+  document.addEventListener("click", function (e) {
+    if (
+      e.target.matches('a[href="#signup"]') ||
+      e.target.closest('a[href="#signup"]')
+    ) {
+      e.preventDefault();
+      if (loginBox && signupBox) {
+        loginBox.classList.add("hidden");
+        signupBox.classList.remove("hidden");
+        window.location.hash = "signup";
+      }
+    }
+  });
+
   if (showSignupBtn && showLoginBtn) {
     showSignupBtn.addEventListener("click", function (e) {
       e.preventDefault();

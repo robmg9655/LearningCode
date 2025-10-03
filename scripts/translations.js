@@ -7,8 +7,7 @@ const translations = {
     navPricing: "料金",
     navContact: "お問い合わせ",
     navLogin: "ログイン",
-    userMenuPricing: "料金プラン",
-    userMenuContact: "お問い合わせ",
+    navSignUp: "登録",
 
     // Home
     heroBadge: "AI駆動のWebサイトジェネレーター",
@@ -138,6 +137,7 @@ const translations = {
     signupName: "フルネーム",
     confirmPassword: "パスワード確認",
     acceptTerms: "利用規約に同意します",
+    haveAccount: "既にアカウントをお持ちですか？",
 
     // Payment Modal
     paymentTitle: "お支払い",
@@ -290,6 +290,7 @@ const translations = {
     signupName: "Full Name",
     confirmPassword: "Confirm Password",
     acceptTerms: "I accept the terms and conditions",
+    haveAccount: "Already have an account?",
 
     // Payment Modal
     paymentTitle: "Payment",
@@ -441,6 +442,7 @@ const translations = {
     signupName: "Nombre Completo",
     confirmPassword: "Confirmar Contraseña",
     acceptTerms: "Acepto los términos y condiciones",
+    haveAccount: "¿Ya tienes una cuenta?",
 
     // Payment Modal
     paymentTitle: "Pago",
