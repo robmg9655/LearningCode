@@ -2300,8 +2300,12 @@ body::before {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .loading-state h3 {
@@ -2359,9 +2363,15 @@ body::before {
 }
 
 @keyframes scaleIn {
-  0% { transform: scale(0); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .result-content.success h2 {
@@ -2380,7 +2390,7 @@ body::before {
   border-radius: 8px;
   margin-top: 0.5rem;
   color: var(--accent-color);
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
 }
 
 .result-content.success ol,
@@ -2414,9 +2424,16 @@ body::before {
 }
 
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-10px); }
-  75% { transform: translateX(10px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
 }
 
 .result-content.error h2 {
@@ -3349,7 +3366,7 @@ body::before {
 
 .file-name {
   flex: 1;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   color: var(--text-primary);
 }
 
@@ -3573,34 +3590,34 @@ body::before {
   .action-buttons {
     flex-direction: column;
   }
-  
+
   .btn-large {
     width: 100%;
     min-width: unset;
   }
-  
+
   .result-stats {
     grid-template-columns: 1fr;
   }
-  
+
   .preview-modal-content {
     width: 98%;
     height: 95%;
   }
-  
+
   .preview-header {
     padding: 1rem;
   }
-  
+
   .preview-header h2 {
     font-size: 1.2rem;
   }
-  
+
   .preview-footer {
     flex-direction: column;
     gap: 0.5rem;
   }
-  
+
   .toast-notification {
     right: 10px;
     left: 10px;

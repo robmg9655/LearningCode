@@ -1,6 +1,7 @@
 # 🚀 Guía del Usuario - Generador de Sitios Web con IA
 
 ## 📋 Tabla de Contenidos
+
 1. [Inicio Rápido](#inicio-rápido)
 2. [Cómo Usar el Formulario](#cómo-usar-el-formulario)
 3. [Temas Disponibles](#temas-disponibles)
@@ -33,23 +34,27 @@ curl http://localhost:8080/health
 ## 📝 Cómo Usar el Formulario
 
 ### 1. **Descripción del Negocio**
+
 Escribe una descripción detallada de tu empresa o proyecto:
 
 **Ejemplo:**
+
 ```
-Una empresa innovadora de tecnología especializada en desarrollo 
-web, diseño UX/UI y soluciones digitales para pequeñas y medianas 
-empresas. Nos enfocamos en crear experiencias digitales modernas 
+Una empresa innovadora de tecnología especializada en desarrollo
+web, diseño UX/UI y soluciones digitales para pequeñas y medianas
+empresas. Nos enfocamos en crear experiencias digitales modernas
 y accesibles.
 ```
 
 **Consejos:**
+
 - Sé específico sobre tu industria
 - Menciona tus servicios principales
 - Incluye tu propuesta de valor única
 - Usa entre 50-500 caracteres para mejores resultados
 
 ### 2. **Selección de Idiomas**
+
 Marca los idiomas en los que quieres que esté disponible tu sitio:
 
 - 🇯🇵 **Japonés** - Para mercado japonés
@@ -61,7 +66,9 @@ Marca los idiomas en los que quieres que esté disponible tu sitio:
 **Nota:** La IA generará contenido apropiado para cada idioma seleccionado.
 
 ### 3. **Subir Imágenes** (Opcional)
+
 Puedes subir hasta 3 imágenes para que la IA:
+
 - Extraiga la paleta de colores de tu marca
 - Use los colores en el diseño del sitio
 - Adapte el tema visual según tus imágenes
@@ -70,16 +77,19 @@ Puedes subir hasta 3 imágenes para que la IA:
 **Tamaño máximo por imagen:** 5MB
 
 ### 4. **Seleccionar Tema**
+
 Usa el carrusel para elegir uno de los 5 temas disponibles.
 
 ---
 
 ## 🎨 Temas Disponibles
 
-### 1. **Modern** (Moderno) 
+### 1. **Modern** (Moderno)
+
 **Ideal para:** Startups tecnológicas, empresas de software, agencias digitales
 
 **Características:**
+
 - Colores: Azul (#3B82F6) con tonos limpios
 - Diseño limpio y contemporáneo
 - Layouts basados en cards/tarjetas
@@ -87,6 +97,7 @@ Usa el carrusel para elegir uno de los 5 temas disponibles.
 - Tipografía sans-serif moderna
 
 **Ejemplo de uso:**
+
 ```
 "Empresa de software SaaS para gestión de proyectos"
 ```
@@ -94,9 +105,11 @@ Usa el carrusel para elegir uno de los 5 temas disponibles.
 ---
 
 ### 2. **Minimalist** (Minimalista)
+
 **Ideal para:** Diseñadores, arquitectos, fotógrafos, portfolios personales
 
 **Características:**
+
 - Colores: Monocromo (negro, grises, blanco)
 - Espacios en blanco generosos
 - Tipografía simple y legible
@@ -104,6 +117,7 @@ Usa el carrusel para elegir uno de los 5 temas disponibles.
 - Enfoque en contenido
 
 **Ejemplo de uso:**
+
 ```
 "Portfolio de diseño gráfico y fotografía artística"
 ```
@@ -111,9 +125,11 @@ Usa el carrusel para elegir uno de los 5 temas disponibles.
 ---
 
 ### 3. **Colorful** (Colorido)
+
 **Ideal para:** Agencias creativas, marcas juveniles, eventos, educación
 
 **Características:**
+
 - Colores: Púrpura (#8B5CF6), Rosa (#EC4899), Naranja (#F59E0B)
 - Paleta vibrante y alegre
 - Gradientes atractivos
@@ -121,6 +137,7 @@ Usa el carrusel para elegir uno de los 5 temas disponibles.
 - Diseño juguetón y energético
 
 **Ejemplo de uso:**
+
 ```
 "Agencia de marketing digital para marcas millennials"
 ```
@@ -128,9 +145,11 @@ Usa el carrusel para elegir uno de los 5 temas disponibles.
 ---
 
 ### 4. **Elegant** (Elegante)
+
 **Ideal para:** Marcas de lujo, joyerías, spas, boutiques, servicios premium
 
 **Características:**
+
 - Colores: Púrpura/Lavanda (#9333EA, #C084FC)
 - Diseño sofisticado y refinado
 - Fuentes serif elegantes
@@ -138,6 +157,7 @@ Usa el carrusel para elegir uno de los 5 temas disponibles.
 - Sensación de lujo y exclusividad
 
 **Ejemplo de uso:**
+
 ```
 "Spa boutique y centro de bienestar de alto nivel"
 ```
@@ -145,9 +165,11 @@ Usa el carrusel para elegir uno de los 5 temas disponibles.
 ---
 
 ### 5. **Dark** (Oscuro)
+
 **Ideal para:** Gaming, tech, música, entretenimiento, productos tech
 
 **Características:**
+
 - Fondo oscuro (#111827)
 - Acentos neón verde (#10B981)
 - Alto contraste
@@ -155,6 +177,7 @@ Usa el carrusel para elegir uno de los 5 temas disponibles.
 - Perfecto para audiencias tech-savvy
 
 **Ejemplo de uso:**
+
 ```
 "Plataforma de streaming de gaming y esports"
 ```
@@ -166,10 +189,12 @@ Usa el carrusel para elegir uno de los 5 temas disponibles.
 ### Cómo Subir Imágenes
 
 1. **Click o Drag & Drop**
+
    - Haz click en el área de carga
    - O arrastra tus imágenes directamente
 
 2. **Previsualización**
+
    - Las imágenes aparecerán como miniaturas
    - Puedes eliminar cualquier imagen con el botón ×
 
@@ -181,12 +206,14 @@ Usa el carrusel para elegir uno de los 5 temas disponibles.
 ### Recomendaciones
 
 **✅ Buenas Prácticas:**
+
 - Usa el logo de tu empresa
 - Incluye fotos de productos/servicios
 - Asegúrate de que las imágenes representen tu marca
 - Usa imágenes de alta calidad (pero no exceder 5MB)
 
 **❌ Evita:**
+
 - Imágenes muy oscuras o borrosas
 - Screenshots con mucho texto
 - Imágenes irrelevantes al negocio
@@ -199,11 +226,13 @@ Usa el carrusel para elegir uno de los 5 temas disponibles.
 ### Proceso de Generación
 
 1. **Envío del Formulario**
+
    - Click en "生成する" (Generar)
    - Aparecerá un spinner de carga
    - Verás el progreso paso a paso
 
 2. **Tiempo de Espera**
+
    - **Promedio:** 30-90 segundos
    - **Factores:** Complejidad, número de páginas, imágenes
    - ⚠️ **NO cierres la página** durante la generación
@@ -255,6 +284,7 @@ xdg-open index.html # Linux
 #### Opción 3: Subir a Hosting
 
 **Netlify (Gratis):**
+
 ```bash
 # Instala Netlify CLI
 npm install -g netlify-cli
@@ -265,6 +295,7 @@ netlify deploy --prod
 ```
 
 **GitHub Pages:**
+
 ```bash
 # Crea repositorio en GitHub
 git init
@@ -285,6 +316,7 @@ git push -u origin main
 ### Problema: "Error al Generar el Sitio Web"
 
 **Causas comunes:**
+
 1. ✗ API no está ejecutándose
 2. ✗ Sin conexión a internet
 3. ✗ Descripción demasiado larga
@@ -307,6 +339,7 @@ curl http://localhost:8080/health
 ```
 
 **Respuesta esperada:**
+
 ```json
 {
   "status": "healthy",
@@ -319,6 +352,7 @@ curl http://localhost:8080/health
 ### Problema: "Descarga muy lenta o se congela"
 
 **Soluciones:**
+
 - Reduce el número de imágenes
 - Usa una descripción más corta
 - Selecciona menos páginas (idiomas)
@@ -330,11 +364,13 @@ curl http://localhost:8080/health
 ### Problema: "El sitio generado no se ve bien"
 
 **Posibles causas:**
+
 1. No usaste servidor local (rutas relativas)
 2. Faltan archivos CSS/JS
 3. Navegador antiguo
 
 **Soluciones:**
+
 1. Usa un servidor HTTP local (ver arriba)
 2. Verifica que todos los archivos estén extraídos
 3. Usa un navegador moderno (Chrome, Firefox, Safari, Edge)
@@ -344,6 +380,7 @@ curl http://localhost:8080/health
 ### Problema: "CORS Error" en la consola del navegador
 
 **Solución:**
+
 ```bash
 # El API ya tiene CORS habilitado, pero verifica:
 docker logs fastapi_generator | grep CORS
@@ -358,22 +395,22 @@ docker logs fastapi_generator | grep CORS
 
 ### Límites del Sistema
 
-| Recurso | Límite | Razón |
-|---------|--------|-------|
-| Páginas por sitio | 5 máximo | Optimización de tiempo |
-| Imágenes | 3 máximo | Análisis de colores |
-| Tamaño por imagen | 5 MB | Procesamiento rápido |
-| Descripción | 2000 caracteres | Calidad del prompt |
-| Requests por minuto | 10 | Rate limiting |
-| Timeout de generación | 300 segundos | Evitar bloqueos |
+| Recurso               | Límite          | Razón                  |
+| --------------------- | --------------- | ---------------------- |
+| Páginas por sitio     | 5 máximo        | Optimización de tiempo |
+| Imágenes              | 3 máximo        | Análisis de colores    |
+| Tamaño por imagen     | 5 MB            | Procesamiento rápido   |
+| Descripción           | 2000 caracteres | Calidad del prompt     |
+| Requests por minuto   | 10              | Rate limiting          |
+| Timeout de generación | 300 segundos    | Evitar bloqueos        |
 
 ### Tiempos Promedio
 
-| Configuración | Tiempo Estimado |
-|--------------|-----------------|
-| Sitio simple (3 páginas, sin imágenes) | 30-45 segundos |
-| Sitio completo (5 páginas, 3 imágenes) | 60-90 segundos |
-| Sitio con análisis de imágenes | +15-20 segundos |
+| Configuración                          | Tiempo Estimado |
+| -------------------------------------- | --------------- |
+| Sitio simple (3 páginas, sin imágenes) | 30-45 segundos  |
+| Sitio completo (5 páginas, 3 imágenes) | 60-90 segundos  |
+| Sitio con análisis de imágenes         | +15-20 segundos |
 
 ---
 
@@ -382,19 +419,22 @@ docker logs fastapi_generator | grep CORS
 ### Para Mejores Resultados
 
 1. **Descripción Detallada**
+
    ```
    ❌ Malo: "Una empresa de tecnología"
-   ✅ Bueno: "Una startup de inteligencia artificial especializada 
-              en análisis predictivo para retail, con soluciones 
+   ✅ Bueno: "Una startup de inteligencia artificial especializada
+              en análisis predictivo para retail, con soluciones
               cloud-native y enfoque en SMB en Latinoamérica"
    ```
 
 2. **Combina Tema + Imágenes**
+
    - Sube logo con colores de tu marca
    - Elige tema que complemente tus colores
    - La IA fusionará ambos estilos
 
 3. **Prueba Diferentes Temas**
+
    - Genera varios sitios con diferentes temas
    - Compara resultados
    - Combina elementos de cada uno

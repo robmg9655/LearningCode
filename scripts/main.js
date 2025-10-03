@@ -104,55 +104,89 @@ document.addEventListener("DOMContentLoaded", function () {
                             <span class="step-text">Compilando y empaquetando sitio</span>
                         </div>
                     </div>
-                    <p class="loading-tip" id="loadingTip">💡 Consejo: El tema ${selectedTheme} usa colores ${getThemeDescription(selectedTheme)}</p>
+                    <p class="loading-tip" id="loadingTip">💡 Consejo: El tema ${selectedTheme} usa colores ${getThemeDescription(
+        selectedTheme
+      )}</p>
                 </div>
             `;
 
       // Función de progreso animado
       const animateProgress = () => {
         const steps = [
-          { id: 'step1', time: 2000, progress: 20, title: '📝 Analizando texto...', tip: 'Extrayendo palabras clave y conceptos principales' },
-          { id: 'step2', time: imageFiles.length > 0 ? 8000 : 3000, progress: 40, title: '🖼️ Visualizando imágenes...', tip: 'Analizando colores y composición de las imágenes' },
-          { id: 'step3', time: 10000, progress: 60, title: '🎨 Diseñando estilo...', tip: 'Aplicando paleta de colores y tipografía del tema ' + selectedTheme },
-          { id: 'step4', time: 15000, progress: 85, title: '💻 Generando código...', tip: 'La IA está escribiendo HTML, CSS y JavaScript optimizado' },
-          { id: 'step5', time: 5000, progress: 100, title: '📦 Finalizando...', tip: 'Compilando todos los archivos en un paquete listo para usar' }
+          {
+            id: "step1",
+            time: 2000,
+            progress: 20,
+            title: "📝 Analizando texto...",
+            tip: "Extrayendo palabras clave y conceptos principales",
+          },
+          {
+            id: "step2",
+            time: imageFiles.length > 0 ? 8000 : 3000,
+            progress: 40,
+            title: "🖼️ Visualizando imágenes...",
+            tip: "Analizando colores y composición de las imágenes",
+          },
+          {
+            id: "step3",
+            time: 10000,
+            progress: 60,
+            title: "🎨 Diseñando estilo...",
+            tip:
+              "Aplicando paleta de colores y tipografía del tema " +
+              selectedTheme,
+          },
+          {
+            id: "step4",
+            time: 15000,
+            progress: 85,
+            title: "💻 Generando código...",
+            tip: "La IA está escribiendo HTML, CSS y JavaScript optimizado",
+          },
+          {
+            id: "step5",
+            time: 5000,
+            progress: 100,
+            title: "📦 Finalizando...",
+            tip: "Compilando todos los archivos en un paquete listo para usar",
+          },
         ];
 
         let currentStep = 0;
         let animationStopped = false;
-        
+
         const updateStep = () => {
           if (animationStopped || currentStep >= steps.length) return;
-          
+
           const step = steps[currentStep];
-          
+
           // Verificar que los elementos aún existen
           const stepEl = document.getElementById(step.id);
-          const titleEl = document.getElementById('loadingTitle');
-          const tipEl = document.getElementById('loadingTip');
-          const progressBar = document.getElementById('progressBar');
-          const progressText = document.getElementById('progressText');
-          
+          const titleEl = document.getElementById("loadingTitle");
+          const tipEl = document.getElementById("loadingTip");
+          const progressBar = document.getElementById("progressBar");
+          const progressText = document.getElementById("progressText");
+
           if (!stepEl || !titleEl || !tipEl || !progressBar || !progressText) {
             animationStopped = true;
             return;
           }
-          
+
           // Activar paso actual
-          stepEl.classList.add('active');
+          stepEl.classList.add("active");
           titleEl.textContent = step.title;
-          tipEl.textContent = '💡 ' + step.tip;
-          
+          tipEl.textContent = "💡 " + step.tip;
+
           // Animar barra de progreso
-          progressBar.style.width = step.progress + '%';
-          progressText.textContent = step.progress + '%';
-          
+          progressBar.style.width = step.progress + "%";
+          progressText.textContent = step.progress + "%";
+
           // Completar paso después de un tiempo
           setTimeout(() => {
             if (animationStopped) return;
             const stepEl = document.getElementById(step.id);
             if (stepEl) {
-              stepEl.classList.add('completed');
+              stepEl.classList.add("completed");
             }
             currentStep++;
             if (currentStep < steps.length) {
@@ -160,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           }, step.time);
         };
-        
+
         updateStep();
       };
 
@@ -170,19 +204,20 @@ document.addEventListener("DOMContentLoaded", function () {
       try {
         // Obtener nombre de empresa
         const companyName = document.getElementById("companyName").value.trim();
-        
+
         // Preparar FormData
         const formData = new FormData();
         formData.append("company_name", companyName || "Mi Empresa");
         formData.append("description", businessDesc);
         formData.append("theme_hint", selectedTheme);
-        
+
         // Enviar páginas como string separado por comas (la API lo parsea)
         // Usar nombres simples sin guiones para evitar problemas de validación
-        const pagesString = selectedLanguages.length > 1 
-          ? "inicio,servicios,nosotros,contacto"
-          : "inicio,servicios,contacto";
-        
+        const pagesString =
+          selectedLanguages.length > 1
+            ? "inicio,servicios,nosotros,contacto"
+            : "inicio,servicios,contacto";
+
         formData.append("pages", pagesString);
 
         // Agregar imágenes si existen
@@ -215,9 +250,11 @@ document.addEventListener("DOMContentLoaded", function () {
             if (errorData.detail) {
               if (Array.isArray(errorData.detail)) {
                 // Error de validación de Pydantic
-                errorMsg = "Error de validación:\n" + errorData.detail.map(err => 
-                  `- ${err.loc.join('.')}: ${err.msg}`
-                ).join('\n');
+                errorMsg =
+                  "Error de validación:\n" +
+                  errorData.detail
+                    .map((err) => `- ${err.loc.join(".")}: ${err.msg}`)
+                    .join("\n");
               } else {
                 errorMsg = errorData.detail;
               }
@@ -232,13 +269,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
         const fileName = `website-${selectedTheme}-${Date.now()}.zip`;
-        
+
         // Guardar en variable global para las funciones de ayuda
         window.generatedWebsite = {
           zipUrl: url,
           fileName: fileName,
           blob: blob,
-          theme: selectedTheme
+          theme: selectedTheme,
         };
 
         // Mostrar animación de finalización primero
@@ -283,7 +320,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
                 <div class="stat-card">
                   <div class="stat-icon">📦</div>
-                  <div class="stat-value">${(blob.size / 1024).toFixed(1)} KB</div>
+                  <div class="stat-value">${(blob.size / 1024).toFixed(
+                    1
+                  )} KB</div>
                   <div class="stat-label">Tamaño</div>
                 </div>
               </div>
@@ -349,7 +388,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 2000);
       } catch (error) {
         console.error("Error generating website:", error);
-        
+
         // Intentar obtener más detalles del error
         let errorDetail = error.message;
         if (error.response) {
@@ -360,7 +399,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Si no podemos parsear el error, usar el mensaje por defecto
           }
         }
-        
+
         resultContainer.innerHTML = `
                     <div class="result-content error">
                         <div class="error-icon">✗</div>
